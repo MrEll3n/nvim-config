@@ -4,17 +4,13 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-
-  -- These are some examples, uncomment them if you want to see them work!
   {
-    "neovim/nvim-lspconfig",           -- zdroj default_config pro servery
-    event = { "BufReadPre", "BufNewFile" },
+    "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      pcall(function() require("mason").setup() end)
       require("configs.lspconfig").setup()
     end,
   },
@@ -56,6 +52,7 @@ return {
   --   -- tvoje detailní nastavení Oilu si nech v configs.oil (může obsahovat i bufferové keymaps s desc)
   --   opts = require "configs.oil",
   -- }
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 

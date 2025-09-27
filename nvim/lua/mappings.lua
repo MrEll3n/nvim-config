@@ -6,7 +6,8 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "kj", "<ESC>")
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+-- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- local function in_oil() return vim.bo.filetype == "oil" end
 -- local act = function() return require("oil.actions") end
@@ -21,6 +22,7 @@ map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 --   { desc = "Oil: Refresh      | Window right" })
 -- map("n", "<C-p>", function() if in_oil() then act().preview.callback() else vim.cmd("bprevious") end end,
 --   { desc = "Oil: Preview      | Prev buffer" })
--- map("n", "q", function() if in_oil() then act().close.callback() else vim.cmd(":q") end end,
+-- map("n", "q", function() if in_oil() then act().close.callback() else vim.cmd("close") end end,
 --   { desc = "Oil: Close        | Close window" })
+
 

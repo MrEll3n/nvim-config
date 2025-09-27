@@ -6,9 +6,9 @@
 local M = {}
 
 M.base46 = {
-	theme = "gruvchad",
-  transparency = false,
-  theme_toggle = { "github_dark", "gruvchad" }
+	theme = "github_dark",
+  transparency = true,
+  theme_toggle = { "github_dark", "obsidian-ember" }
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },
