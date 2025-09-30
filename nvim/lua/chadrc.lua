@@ -7,7 +7,7 @@ local M = {}
 
 M.base46 = {
 	theme = "github_dark",
-  transparency = true,
+  transparency = false,
   theme_toggle = { "github_dark", "obsidian-ember" }
 	-- hl_override = {
 	-- 	Comment = { italic = true },
