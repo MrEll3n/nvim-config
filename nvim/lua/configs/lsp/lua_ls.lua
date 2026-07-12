@@ -6,27 +6,27 @@ return {
         version = "LuaJIT",
       },
       diagnostics = {
-        -- Neřvi na globální `vim`, případně přidej další globály dle potřeby
+        -- Don't warn about the global `vim`; add more globals here if needed
         globals = { "vim" },
       },
       workspace = {
-        -- Načti runtime Nvim soubory, aby fungoval completion/reference na vim api a pluginy
+        -- Load Nvim runtime files so completion/references work for the vim api and plugins
         library = vim.api.nvim_get_runtime_file("", true),
         checkThirdParty = false,
       },
       telemetry = { enable = false },
 
-      -- Volitelné: vestavěné formátování (pokud nechceš, vynech)
+      -- Optional: built-in formatting (omit if you don't want it)
       format = {
         enable = true,
         defaultConfig = {
           indent_style = "space",
-          indent_size = "2",
+          indent_size = "4",
           quote_style = "auto",
         },
       },
 
-      -- Volitelné: “semantic” hints a chování completion
+      -- Optional: "semantic" hints and completion behavior
       hint = { enable = true },
       completion = {
         callSnippet = "Replace", -- nebo "Both"/"Disable"

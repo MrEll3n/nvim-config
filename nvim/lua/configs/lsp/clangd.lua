@@ -1,10 +1,10 @@
 return {
   cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=iwyu" },
-  -- pozn.: clangd obslouží C, C++ i Objective-C. Není třeba zvlášť "c" a "cpp" server.
+  -- note: clangd handles C, C++, and Objective-C. No need for separate "c" and "cpp" servers.
   init_options = {
     clangdFileStatus = true,
   },
-  -- někomu pomáhá nastavit offsetEncoding kvůli některým pluginům:
+  -- setting offsetEncoding helps with some plugins:
   capabilities = { offsetEncoding = { "utf-16" } },
 }
 

@@ -1,4 +1,4 @@
--- C# přes Omnisharp (mason balík "omnisharp")
+-- C# via Omnisharp (mason package "omnisharp")
 return function(nvlsp)
   local opts = {
     enable_roslyn_analyzers = true,
@@ -6,7 +6,7 @@ return function(nvlsp)
     enable_import_completion = true,
   }
 
-  -- Některé buildy Omnisharpu neposílají semantic tokens -> jednoduchý patch v on_attach
+  -- Some Omnisharp builds don't send semantic tokens -> simple patch in on_attach
   local function patch_semantic_tokens(client)
     if not client.server_capabilities.semanticTokensProvider then
       local caps = client.config.capabilities
@@ -25,7 +25,7 @@ return function(nvlsp)
 
   opts.on_attach = function(client, bufnr)
     patch_semantic_tokens(client)
-    -- přiklapí se i NvChad on_attach (viz loader)
+    -- NvChad on_attach is chained too (see loader)
   end
 
   return opts

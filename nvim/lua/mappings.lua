@@ -31,6 +31,29 @@ end, { desc = "General format file" })
 
 -- global lsp mappings
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
+map("n", "K", vim.lsp.buf.hover, { desc = "LSP hover info" })
+map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
+
+local function has_lsp_client()
+  return #vim.lsp.get_clients { bufnr = 0 } > 0
+end
+
+-- gr/gi are builtin Vim commands too, so fall back to them when no LSP is attached
+map("n", "gr", function()
+  if has_lsp_client() then
+    vim.lsp.buf.references()
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("gr", true, false, true), "n", false)
+  end
+end, { desc = "LSP references" })
+
+map("n", "gi", function()
+  if has_lsp_client() then
+    vim.lsp.buf.implementation()
+  else
+    vim.cmd "normal! gi"
+  end
+end, { desc = "LSP implementation" })
 
 -- tabufline
 if require("nvconfig").ui.tabufline.enabled then
@@ -82,7 +105,7 @@ map(
 
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal escape terminal mode" })
- 
+
 -- new terminals
 map("n", "<leader>h", function()
   require("nvchad.term").new { pos = "sp" }

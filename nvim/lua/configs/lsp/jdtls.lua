@@ -1,8 +1,8 @@
--- Minimální JDT. Pro pokročilé features (code actions, testy, debug) doporučuji plugin "nvim-jdtls".
+-- Minimal JDT. For advanced features (code actions, tests, debug) I recommend the "nvim-jdtls" plugin.
 return {
-  -- mason-lspconfig nastaví cmd/root_dir automaticky
+  -- mason-lspconfig sets cmd/root_dir automatically
   on_attach = function(client, bufnr)
-    -- sem si můžeš dát Java-specifické mapy; NvChad on_attach se už přiklapí v loaderu
+    -- put Java-specific mappings here; NvChad on_attach is already chained in the loader
   end,
 }
 

@@ -58,6 +58,7 @@ function M.setup()
       if nvlsp.on_attach then
         nvlsp.on_attach(client, bufnr)
       end
+
       if type(user_on_attach) == "function" then
         user_on_attach(client, bufnr)
       end

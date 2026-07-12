@@ -27,7 +27,7 @@ return {
       constrain_cursor = "editable",
       watch_for_changes = false,
 
-      -- buffer-lokální mapy (ukážou se ve which-key po prefixu `g` v Oil bufferu)
+      -- buffer-local mappings (show up in which-key after the `g` prefix in the Oil buffer)
       keymaps = {
         ["g?"] = { "actions.show_help", mode = "n", desc = "Oil: Help" },
         ["<CR>"] = { "actions.select", desc = "Open" },
